@@ -15,5 +15,5 @@ import fats
 def foo():
     print('foo')
 
-fat.interact() # start an interactive python shell
+fats.interact() # start an interactive python shell
 ```
