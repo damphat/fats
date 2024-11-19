@@ -40,7 +40,7 @@ def toDicts(y):
         else:
             return {i: y[i] for i in range(y.shape[0])}
     elif isinstance(y, list):
-        return toDicts(np.array(y))
+        return {i: y[i] for i in range(len(y))}
     elif isinstance(y, torch.Tensor):
         return toDicts(y.detach().cpu().numpy())
     else:
