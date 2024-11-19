@@ -5,14 +5,21 @@
     ```
 - [x] plot/update an axis
     ```py
-    fats.plot(dict(weights=weights, biases=biases))
+    fats.plot(dict(
+        inputs=inputs, 
+        outputs=outputs,
+    ))
     ```
 - [x] plot multiple axes in 1 figure
     ```py
-    fats.plots(
-        dict(weights=weights, biases=biases),
-        dict(loss=loss),
-    )
+    fats.plots(dict(
+        inputs=inputs,
+        outputs=outputs,
+        losses=dict(
+            train_losses=train_losses,
+            val_losses=val_losses,
+        ),
+    ))
     ```
 ### Installation
 
@@ -23,10 +30,18 @@ pip install git+https://github.com/damphat/fats.git
 ### Usage
 
 ```py
+import torch
 import fats
 
-def foo():
-    print('foo')
+inputs = torch.randn(10, 2)
+outputs = torch.randn(10, 1)
+losses = torch.randn(10)
+
+fats.plot(dict(inputs=inputs, outputs=outputs))
+fats.plots(dict(
+    ax1=dict(inputs=inputs, outputs=outputs),
+    losses=losses,
+))
 
 fats.interact() # start an interactive python shell
 ```
