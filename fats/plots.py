@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import numpy as np
-import torch
 
 def toDict1(y):
     if isinstance(y, dict):
@@ -18,8 +17,6 @@ def toDict1(y):
             raise ValueError(f'Unsupported array shape: {y.shape}')
     elif isinstance(y, list):
         return {i: y[i] for i in range(len(y))}
-    elif isinstance(y, torch.Tensor):
-        return toDict1(y.detach().cpu().numpy())
     else:
         raise TypeError(f'Unsupported type: {type(y)}')
 
@@ -45,8 +42,6 @@ def toDicts(y):
             return {i: y[i] for i in range(y.shape[0])}
     elif isinstance(y, list):
         return {i: y[i] for i in range(len(y))}
-    elif isinstance(y, torch.Tensor):
-        return toDicts(y.detach().cpu().numpy())
     else:
         raise TypeError(f'Unsupported type: {type(y)}')
 

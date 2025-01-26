@@ -5,4 +5,9 @@ setup(
     name="fats",
     version="0.1",
     packages=find_packages(),
+    # dependencies
+    install_requires=[
+        "numpy",
+        "matplotlib",
+    ],
 )
