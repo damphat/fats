@@ -11,7 +11,7 @@ from pathlib import Path
 from typing import Any, Dict, Optional
 
 
-def interact(local: Optional[Dict[str, Any]] = None, banner: Optional[str] = None, history: str = "~/.fats_history") -> None:
+def interact(local: Optional[Dict[str, Any]] = None, banner: Optional[str] = None, history: str = "~/.fats_history", history_limit: int = 1000) -> None:
     """Launch an interactive REPL with history and auto-completion. Defaults to caller's globals."""
     if local is None:
         local = sys._getframe(1).f_globals
