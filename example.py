@@ -1,2 +1,0 @@
-import fats
-fats.interact()

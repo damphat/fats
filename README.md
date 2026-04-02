@@ -1,47 +1,28 @@
-## My personal python utillities
-- [x] start an interactive python shell with history and autocompletion
-    ```
-    fats.interact()
-    ```
-- [x] plot/update an axis
-    ```py
-    fats.plot(dict(
-        inputs=inputs, 
-        outputs=outputs,
-    ))
-    ```
-- [x] plot multiple axes in 1 figure
-    ```py
-    fats.plots(dict(
-        inputs=inputs,
-        outputs=outputs,
-        losses=dict(
-            train_losses=train_losses,
-            val_losses=val_losses,
-        ),
-    ))
-    ```
-### Installation
+# fats
+
+Personal Python utilities.
+
+## Install
 
 ```bash
+# pip
 pip install git+https://github.com/damphat/fats.git
+
+# uv
+uv add git+https://github.com/damphat/fats.git
 ```
 
-### Usage
+## fats.interact
 
-```py
-import torch
-import fats
+A better `code.interact` for quick debugging and scripts.
 
-inputs = torch.randn(10, 2)
-outputs = torch.randn(10, 1)
-losses = torch.randn(10)
+- **Auto everything**: Injects `globals()` by default.
+- **History & Completion**: Persistent history at `~/.fats_history` and tab completion.
+- **Zero dependencies**: Pure standard library.
 
-fats.plot(dict(inputs=inputs, outputs=outputs))
-fats.plots(dict(
-    ax1=dict(inputs=inputs, outputs=outputs),
-    losses=losses,
-))
+```python
+from fats import interact
 
-fats.interact() # start an interactive python shell
+# ... your code ...
+interact()
 ```

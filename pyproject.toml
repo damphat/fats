@@ -1,0 +1,16 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "fats"
+version = "0.1.0"
+description = "My personal python utillities"
+readme = "README.md"
+requires-python = ">=3.9"
+dependencies = []
+
+[tool.uv.workspace]
+members = [
+    "foo",
+]
