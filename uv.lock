@@ -1,19 +1,8 @@
 version = 1
 revision = 3
-requires-python = ">=3.14"
-
-[manifest]
-members = [
-    "fats",
-    "foo",
-]
+requires-python = ">=3.9"
 
 [[package]]
 name = "fats"
-version = "0.1.0"
+version = "0.3.0"
 source = { editable = "." }
-
-[[package]]
-name = "foo"
-version = "0.1.0"
-source = { virtual = "foo" }
